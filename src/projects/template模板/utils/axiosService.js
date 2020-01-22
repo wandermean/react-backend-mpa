@@ -1,9 +1,6 @@
 import axios from "axios";
 
 axios.defaults.timeout = 10000;
-// axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-// axios.defaults.headers.get['Content-type'] = 'application/json';
-// axios.defaults.headers.post['Content-type'] = 'application/json';
 axios.defaults.withCredentials = true;
 
 axios.interceptors.response.use(
@@ -15,11 +12,11 @@ axios.interceptors.response.use(
             window.location.host.indexOf("dev") >= 0 ||
             window.location.host.indexOf("sit") >= 0
           ) {
-            window.location = "//sfsit.cnsuning.com/nsfuaa-admin/home.htm";
+            window.location = "//sfsit.xxx.com/nsfuaa-admin/home.htm";
           } else if (window.location.host.indexOf("pre") >= 0) {
-            window.location = "//sfpre.cnsuning.com/nsfuaa-admin/home.htm";
+            window.location = "//sfpre.xxx.com/nsfuaa-admin/home.htm";
           } else {
-            window.location = "//sf.cnsuning.com/nsfuaa-admin/home.htm";
+            window.location = "//sf.xxx.com/nsfuaa-admin/home.htm";
           }
         }, 3000);
       } else {
@@ -31,18 +28,6 @@ axios.interceptors.response.use(
   },
   error => {
     console.log(error.response)
-    // setTimeout(function() {
-    //   if (
-    //     window.location.host.indexOf("dev") >= 0 ||
-    //     window.location.host.indexOf("sit") >= 0
-    //   ) {
-    //     window.location = "//sfsit.cnsuning.com/nsfuaa-admin/home.htm";
-    //   } else if (window.location.host.indexOf("pre") >= 0) {
-    //     window.location = "//sfpre.cnsuning.com/nsfuaa-admin/home.htm";
-    //   } else {
-    //     window.location = "//sf.cnsuning.com/nsfuaa-admin/home.htm";
-    //   }
-    // }, 3000);
     throw new Error("网络异常，请稍后重试");
   }
 );
