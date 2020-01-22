@@ -1,0 +1,1 @@
+export const CHANGE_LOADING = 'LIST/CHANGE_LOADING'
